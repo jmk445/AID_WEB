@@ -27,7 +27,7 @@ jobs:
         mongo_port: ${{secrets.mongo_port}}
 
       run: |
-        mkdir env
+        mkdir ./app/env
         echo "MONGO_INITDB_ROOT_USERNAME=$mongo_user" >> ./app/env/.db.env
         echo "MONGO_INITDB_ROOT_PASSWORD=$mongo_password" >> ./app/env/.db.env
 
@@ -64,7 +64,7 @@ jobs:
       uses: docker/build-push-action@v4
       with:
         context: .
-        file: Dockerfile
+        file: Dockerfile.prod
         push: true
         tags: bshlab671/aid_web:latest
 
@@ -75,8 +75,8 @@ jobs:
         username: ${{ secrets.AWS_USERNAME }}
         key: ${{ secrets.AWS_KEY }}
 
-        script:
+        script: |
           sudo docker compose down
-          sudo docker rmi ${{ secrets.DOCKER_ID }}/aid_web
-          sudo docker pull ${{ secrets.DOCKER_ID }}/aid_web
+          sudo docker rmi ${{ secrets.DOCKERHUB_ID }}/aid_web
+          sudo docker pull ${{ secrets.DOCKERHUB_ID }}/aid_web
           sudo docker compose up
