@@ -48,21 +48,19 @@ def submission_list_page(request: Request, submit_page: int = 1):
     offset = (submit_page - 1) * limit
     selected = all_data.limit(limit).skip(offset)
 
-    first_idx = (
-        1
-        if (submit_page <= 1 + interval) or last_page < page_idx_max
-        else last_page - 4
-        if submit_page >= last_page - interval
-        else submit_page - interval
-    )
+    if (submit_page <= 1 + interval) or last_page < page_idx_max:
+        first_idx = 1
+    elif submit_page >= last_page - interval:
+        first_idx = last_page - 4
+    else:
+        first_idx = submit_page - interval
 
-    last_idx = (
-        last_page
-        if (last_page <= submit_page + interval)
-        else page_idx_max
-        if submit_page <= 1 + interval
-        else submit_page + interval
-    )
+    if last_page <= submit_page + interval:
+        last_idx = last_page
+    elif submit_page <= 1 + interval:
+        last_idx = page_idx_max
+    else:
+        last_idx = submit_page + interval
 
     return template.TemplateResponse(
         "submission_list.html",
