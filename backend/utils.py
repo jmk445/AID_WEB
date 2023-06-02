@@ -73,7 +73,7 @@ def make_message(message):
 
 def make_dummy_submit():
     dummies = []
-    for i in range(100):
+    for i in range(29):
         tmp = {}
         email_tail = ["naver.com", "pusan.co.kr", "gmail.com"]
         p_skill = ["상", "중", "하"]
