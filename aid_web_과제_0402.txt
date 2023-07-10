@@ -1,0 +1,30 @@
+/all 같은 경우에는 없어도 돼야ㅕ 근데 여기서 어떤 역할을 하면은 noqa를 적어놨는데 precommit에서 wkehddmfh
+원래 역할은 모듈이 여러가지가 있으면 밖으로 내보낼 패키지에 대해서
+
+/import c
+/d가 있을때 alll에 안들어가있으면 모듈로 안내겠다. api들어가서
+/나중에 import할때 .api.api를 안해도 되게끔해줌(한단계더 안타게 해줌)
+
+
+/stopmin 질문 : 뭐 프로그램실행을 하니까  아ㅏ무터미널에서 docker ps (아 ios는 써야 되나봄)
+/mark down으로 가셔서
+/이번주에 하는 것을 issue에다가
+/ 코드에 비밀번호랑 아이디 있을건데 (mongo db compass에서) 그걸 ㅣ고 connect를 해준다. 다시 docker.ps 터미널에 다시 해보실래요? 근데 저도 들어가지긴 하는거 같던데 내용이 변하거나 그러진않고,모르겠어요 근데 정확하게 하면 user name이랑 pass word를 쳐주는게 맞아요.
+근데 이렇게 비밀번호 아이디 치고 connect 하니까 authentication fail이라고 뜸. 음,,,이거는 일단 화긴을 해봐야 알거 같네요, 일단 저거는 차후 알아보는걸로 하고, 문제가 여러가지 있을 수가 있어요,(그 db authentication부터 안되는 문제)
+
+project에 지원페이지 제작을 할텐데, 일단 1.로그인 내용을 빼고,  (여기에 이제 숙제 적어 주는듯)
+
+우리는 api-createapi 구현하기임. 최종적으로 할게 메일을 받아서 그 메일에
+(sh_run_server.sh하면 나옴)  지원을 하면 db에 쌓이는데 합격한 사람한테는 메일로 합격했다고 보내고, 뭐 여기 까지가 목표다
+이제 이걸 구체적으로 기획을 짜야하는데 제가 기능을 구체적으로 주는ㄱ 하시기 편할거 같거든요 일단 db연결하시고 docker compose up하고
+그 아까 지원페이지 들어가서 지원 치면 db에서 생성되는거 볼수 있도록 만들어놨거든요
+이제 만드셔야할게, scheme에 submitform을 만들어놨어요 이제 두분이서 sybmit.py에서 isvalid마
+
+/optinal 적힌게 필수인게 아니라 (2번 과제 설명해주면서 말해줬는ㄷ)
+/2.is_valid 완성 : valid하면 홈으로보내고 아니면 submit,html을 원래 있던 contexzt로 가게끔해놓은 isvalid를 만들어주고,
+/1. admin유저가 모든걸 가져오고 싶다하면 submit 들어가서 test로 들어가서 mongodb compass에 있는 submit메뉴에 있는 제출한 사람들의 모든 정보를 가져오는것을 crud에 read_all _submit함수에 구현하면 됨 그 밑에 는 아이드를 가져오면 (docu에서 id가 있음) 그걸 가져오면 그 아이디를 가져오면 리턴을 해주는
+/todo라고 돼있는 부분 하면 됨.
+/해야할 부분 /todo로 해놨으니까 이제 pull 받으셔서 작성을 하시면 됩니다.
+/밥먹고 2시에 미정인곳에서
+
+/일단 개인적으로 applicast하고 코드리뷰까지 피드백 받아주시기 바랍니ㄷ
