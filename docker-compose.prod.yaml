@@ -2,9 +2,28 @@ version: "3.8"
 
 services:
 
+  web-server:
+    container_name: nginx
+
+    image: nginx:latest
+
+    restart: always
+
+    environment:
+      TZ: "Asia/Seoul"
+
+    volumes:
+      - ./config/nginx.prod.conf:/etc/nginx/nginx.conf
+
+    ports:
+      - 80:80
+
+    networks:
+      - aid
+
   server:
 
-    container_name: Fastapi-server
+    container_name: FastapiApp
 
     image: bshlab671/aid_web:latest
 
@@ -13,8 +32,8 @@ services:
 
     restart: always
 
-    ports:
-      - 80:80
+    expose:
+      - 8000
 
     environment:
       TZ: "Asia/Seoul"
@@ -36,9 +55,12 @@ services:
     expose:
       - 27017
 
+    ports:
+      - 27017:27017
+
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin_user
-      - MONGO_INITDB_ROOT_PASSWORD=password
+      - MONGO_INITDB_ROOT_USERNAME=***
+      - MONGO_INITDB_ROOT_PASSWORD=***
 
     networks:
       - aid

@@ -10,23 +10,26 @@
         border-radius: 5px;
     }
 
-
-    nav .page-item .page-link {
+    .pagination .page-item .page-link {
         background: linear-gradient(-45deg, #FFA3B1, #FFD8CB);
         border-color: transparent;
-
+        color: white;
     }
 
-    nav .page-item.active .page-link {
+    .pagination .page-item.active .page-link {
         color: white;
         background: white;
         color: #FFD8CB;
-        border-color: #FFD8CB;    }
+        border-color: #FFD8CB;
+    }
 
-    nav .page-link:hover {
+    .pagination .page-item .page-link:hover {
         background: linear-gradient(-45deg, #FFA3B1, #FFD8CB);
+        filter: brightness(90%);
         color: white;
     }
+
+
     .dashboard-container {
         display: flex;
         flex-wrap: wrap;
@@ -80,6 +83,7 @@
 </style>
 {% endblock head %}
 
+
 {% block content %}
 {% include 'nav.html' %}
 
@@ -88,7 +92,7 @@
         <img src="{{ url_for('static', path='images/FullMail.png') }}" width="120" height="120" />
         <span>현재 지원자 수: {{ data_cnt }}</span>
     </div>
-    <div class="dashboard-block">
+    <div class="dashboard-block" onclick="location.href='/sender'" style="cursor:pointer">
         <img src="{{ url_for('static', path='images/SendMail.png') }}" width="140" height="140" />
         <span>메일 전송</span>
     </div>
@@ -121,7 +125,7 @@
     <ul class="pagination justify-content-center">
         {% if cur_page != 1 %}
             <li class="page-item">
-                <a class="page-link" href="/admin/?submit_page={{ cur_page-1 }}">&laquo;</a>
+                <a class="page-link" href="/admin/?submit_page={{ 1 }}">&laquo;</a>
             </li>
         {% endif %}
         {% for x in range(first_idx, last_idx+1) %}
@@ -131,10 +135,11 @@
         {% endfor %}
         {% if cur_page != last_page %}
             <li class="page-item">
-                <a class="page-link" href="/admin/?submit_page={{ cur_page+1 }}">&raquo;</a>
+                <a class="page-link" href="/admin/?submit_page={{ last_page }}">&raquo;</a>
             </li>
         {% endif %}
     </ul>
 </nav>
+
 
 {% endblock content %}
