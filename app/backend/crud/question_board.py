@@ -13,7 +13,6 @@ def create_comment(comment_data: CommentIn):
 
 
 def insert_comment_in_question(question_id: str, comment_id: str):
-    # question = db_manager.db.question.find_one({"_id": ObjectId(question_id)})
     db_manager.db.question.update_one({"_id": question_id}, {"$push": {"comments": ObjectId(comment_id)}})
 
 
